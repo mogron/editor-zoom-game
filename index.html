@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Zoom Game Editor</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand">Quiz</a>
+    </div>
+  </nav>
+
+  <div class="container" id="quiz-edit">
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        Title:<input class="form-control" placeholder="Quiz Name" v-model="quiz.title">
+        Description:<textarea class="form-control" placeholder="Quiz Description" v-model="quiz.description"></textarea>
+        Prompt:<input class="form-control" placeholder="Quiz Prompt" v-model="quiz.prompt">
+        Question:<input class="form-control" placeholder="Quiz Question" v-model="quiz.question">
+        Answer:<input class="form-control" placeholder="Quiz Answer" v-model="quiz.answer">
+        Initial Zoom:<input class="form-control" v-model.number="quiz.initialZoom">
+        Min Zoom for Points:<input class="form-control" v-model.number="quiz.minZoomForPoints">
+        <button class="btn btn-secondary" @click="toggleMapTypeId">{{ quiz.mapTypeId }}</button>
+      </div>
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h3>Add a Location</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <input class="form-control" placeholder="Title" v-model="place.title">
+            Latitude:<input class="form-control" placeholder="Lat" v-model.number="place.lat">
+            Longitude:<input class="form-control" placeholder="Long" v-model.number="place.long">
+          </div>
+          <button class="btn btn-primary" @click="addPlace">Add</button>
+        </div>
+        <ul v-for="pl in quiz.places">
+          <li><button class="btn btn-danger" @click="removePlace(pl)">X</button>{{ pl.title }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <pre>{{ asJSON }}</pre>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" @click="importJSON">Import JSON</button><br>
+      <textarea v-model="importField"></textarea>
+    </div>
+  </div>
+
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

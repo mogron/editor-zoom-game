@@ -1,0 +1,37 @@
+{
+  "title": "European Stadiums",
+  "description": "Find the European Stadiums",
+  "prompt": "Enter a stadium",
+  "question": "Which stadium is this?",
+  "answer": "The answer is {{title}}.",
+  "initialZoom": 17,
+  "minZoomForPoints": 4,
+  "mapTypeId": "satellite",
+  "autocomplete": [
+    "Old Trafford",
+    "Camp Nou"
+  ],
+  "mapStyles": [
+    {
+      "featureType": "all",
+      "elementType": "labels",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "title": "Old Trafford",
+      "lat": 53.463075,
+      "long": -2.291174
+    },
+    {
+      "title": "Camp Nou",
+      "lat": 41.380864,
+      "long": 2.122863
+    }
+  ]
+}
